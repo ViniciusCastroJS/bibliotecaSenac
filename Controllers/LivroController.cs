@@ -42,6 +42,7 @@ namespace Biblioteca.Controllers
             return View(livroService.ListarTodos(objFiltro));
         }
 
+
         public IActionResult Edicao(int id)
         {
             Autenticacao.CheckLogin(this);

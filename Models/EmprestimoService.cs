@@ -1,15 +1,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace Biblioteca.Models
 {
     public class EmprestimoService 
     {
-        public void Inserir(Emprestimo e)
+        public void Inserir(Emprestimo e, Usuario usuario)
         {
             using(BibliotecaContext bc = new BibliotecaContext())
             {
+                e.UsuarioId = usuario.Id;
                 bc.Emprestimos.Add(e);
                 bc.SaveChanges();
             }
@@ -30,11 +32,38 @@ namespace Biblioteca.Models
             }
         }
 
-        public ICollection<Emprestimo> ListarTodos(FiltrosEmprestimos filtro)
+        public IList<Emprestimo> ListarTodos(FiltrosEmprestimos filtro)
         {
             using(BibliotecaContext bc = new BibliotecaContext())
             {
-                return bc.Emprestimos.Include(e => e.Livro).ToList();
+                IList<Emprestimo> query;
+                
+                if(filtro != null)
+                {
+                    //definindo dinamicamente a filtragem
+                    switch(filtro.TipoFiltro)
+                    {
+                        case "Usuario":
+                            query = bc.Emprestimos.Where(e => e.NomeUsuario.Contains(filtro.Filtro)).ToList();
+                        break;
+
+                        case "Livro":
+                            query = bc.Emprestimos.Where(e => e.Livro.Titulo.Contains(filtro.Filtro)).ToList();
+                        break;
+
+                        default:
+                            query = bc.Emprestimos.ToList();
+                        break;
+                    }
+                }
+                else
+                {
+                    // caso filtro não tenha sido informado
+                    query = bc.Emprestimos.ToList();
+                }
+                
+                //ordenação padrão
+                return query.ToList();
             }
         }
 
@@ -43,6 +72,15 @@ namespace Biblioteca.Models
             using(BibliotecaContext bc = new BibliotecaContext())
             {
                 return bc.Emprestimos.Find(id);
+            }
+        }
+
+
+        public List<Emprestimo> ObterPorLogin(int id)
+        {
+            using(BibliotecaContext bc = new BibliotecaContext())
+            {
+                return bc.Emprestimos.Where(em => em.Id == id).ToList();
             }
         }
     }

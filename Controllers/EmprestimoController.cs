@@ -23,10 +23,12 @@ namespace Biblioteca.Controllers
         public IActionResult Cadastro(CadEmprestimoViewModel viewModel)
         {
             EmprestimoService emprestimoService = new EmprestimoService();
+            UsuarioService usuarioService = new UsuarioService();
+            Usuario usuario = usuarioService.ListarUsuario(HttpContext.Session.GetString("user"));
             
             if(viewModel.Emprestimo.Id == 0)
             {
-                emprestimoService.Inserir(viewModel.Emprestimo);
+                emprestimoService.Inserir(viewModel.Emprestimo, usuario);
             }
             else
             {
@@ -37,6 +39,7 @@ namespace Biblioteca.Controllers
 
         public IActionResult Listagem(string tipoFiltro, string filtro)
         {
+            Autenticacao.CheckLogin(this);
             FiltrosEmprestimos objFiltro = null;
             if(!string.IsNullOrEmpty(filtro))
             {

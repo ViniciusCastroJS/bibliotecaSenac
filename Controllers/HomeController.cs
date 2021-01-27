@@ -25,6 +25,12 @@ namespace Biblioteca.Controllers
             return View();
         }
 
+        public IActionResult IndexUsuario()
+        {
+            Autenticacao.CheckLogin(this);
+            return View();
+        }
+
         public IActionResult Login()
         {
             return View();
@@ -33,16 +39,25 @@ namespace Biblioteca.Controllers
         [HttpPost]
         public IActionResult Login(string login, string senha)
         {
-            if(login != "admin" || senha != "123")
-            {
-                ViewData["Erro"] = "Senha inválida";
-                return View();
+            UsuarioService usuarioService = new UsuarioService();
+            List<Usuario> usuarios = usuarioService.ListarTodos();
+
+            foreach (Usuario u in usuarios){
+                if (u.Login == "admin" && u.Senha == "123" )
+                {
+                    HttpContext.Session.SetString("user", "admin");
+                    return RedirectToAction("Index");
+                }
+
+                if (u.Login == login && u.Senha == senha )
+                {
+                    HttpContext.Session.SetString("user", u.Login);
+                    return RedirectToAction("IndexUsuario");
+                }
             }
-            else
-            {
-                HttpContext.Session.SetString("user", "admin");
-                return RedirectToAction("Index");
-            }
+
+            ViewData["Erro"] = "Senha inválida";
+            return View();
         }
 
         public IActionResult Privacy()

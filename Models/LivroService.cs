@@ -22,8 +22,20 @@ namespace Biblioteca.Models
                 Livro livro = bc.Livros.Find(l.Id);
                 livro.Autor = l.Autor;
                 livro.Titulo = l.Titulo;
+                livro.Ano = l.Ano;
 
                 bc.SaveChanges();
+            }
+        }
+
+        public ICollection<Livro> ListarTodosUsuario(int id)
+        {
+            using(BibliotecaContext bc = new BibliotecaContext())
+            {
+                IQueryable<Livro> query = bc.Livros.Where(p => p.Id == id);
+                
+                //ordenação padrão
+                return query.ToList();
             }
         }
 
@@ -62,6 +74,7 @@ namespace Biblioteca.Models
             }
         }
 
+
         public ICollection<Livro> ListarDisponiveis()
         {
             using(BibliotecaContext bc = new BibliotecaContext())
@@ -70,7 +83,7 @@ namespace Biblioteca.Models
                 // utiliza uma subconsulta
                 return
                     bc.Livros
-                    .Where(l =>  !(bc.Emprestimos.Where(e => e.Devolvido == false).Select(e => e.LivroId).Contains(l.Id)) )
+                    .Where(l => !(bc.Emprestimos.Where(e => e.Devolvido == false).Select(e => e.LivroId).Contains(l.Id)) )
                     .ToList();
             }
         }
