@@ -28,18 +28,18 @@ namespace Biblioteca.Models
             }
         }
 
-        public ICollection<Livro> ListarTodosUsuario(int id)
+        public Livro ListarTodosPorId(int id)
         {
             using(BibliotecaContext bc = new BibliotecaContext())
             {
-                IQueryable<Livro> query = bc.Livros.Where(p => p.Id == id);
+                Livro query = bc.Livros.Where(p => p.Id == id).First();
                 
                 //ordenação padrão
-                return query.ToList();
+                return query;
             }
         }
 
-        public ICollection<Livro> ListarTodos(FiltrosLivros filtro = null)
+        public IList<Livro> ListarTodos(FiltrosLivros filtro = null)
         {
             using(BibliotecaContext bc = new BibliotecaContext())
             {

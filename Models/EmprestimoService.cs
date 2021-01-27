@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Http;
 
 namespace Biblioteca.Models
 {
@@ -75,6 +73,13 @@ namespace Biblioteca.Models
             }
         }
 
+        public IList<Emprestimo> ObterEmcomUserId(int id)
+        {
+            using(BibliotecaContext bc = new BibliotecaContext())
+            {
+                return bc.Emprestimos.Where(p => p.UsuarioId == id).ToList();
+            }
+        }
 
         public List<Emprestimo> ObterPorLogin(int id)
         {

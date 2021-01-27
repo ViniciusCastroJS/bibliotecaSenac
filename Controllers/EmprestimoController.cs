@@ -58,6 +58,28 @@ namespace Biblioteca.Controllers
             return View(PagEmprestimo);
         }
 
+        public IActionResult ListagemUsuario(string tipoFiltro, string filtro, int? pagina)
+        {
+
+            Autenticacao.CheckLogin(this);
+            FiltrosEmprestimos objFiltro = null;
+            if(!string.IsNullOrEmpty(filtro))
+            {
+                objFiltro = new FiltrosEmprestimos();
+                objFiltro.Filtro = filtro;
+                objFiltro.TipoFiltro = tipoFiltro;
+            }
+            int NumeroPag = pagina ?? 1;
+            int PagSize = 10;
+            LivroService livroService = new LivroService();
+            UsuarioService usuarioService = new UsuarioService();
+            Usuario u = usuarioService.ObterPorLogin(HttpContext.Session.GetString("user"));
+            EmprestimoService emprestimoService = new EmprestimoService();
+            IList<Emprestimo> em = emprestimoService.ObterEmcomUserId(u.Id);
+            var PagEmprestimo = em.ToPagedList(NumeroPag, PagSize);
+            return View(PagEmprestimo);
+        }
+
         public IActionResult Edicao(int id)
         {
             LivroService livroService = new LivroService();

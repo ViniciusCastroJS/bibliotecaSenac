@@ -1,6 +1,8 @@
 using Biblioteca.Models;
 using Microsoft.AspNetCore.Mvc;
 using X.PagedList;
+using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 
 namespace Biblioteca.Controllers
 {
@@ -45,6 +47,35 @@ namespace Biblioteca.Controllers
             var PagLivro = livroService.ListarTodos(objFiltro).ToPagedList(NumeroPag, PagSize);
             return View(PagLivro);
         }
+
+        public IActionResult ListagemUsuario(string tipoFiltro, string filtro, int? pagina)
+        {
+            Autenticacao.CheckLogin(this);
+            FiltrosLivros objFiltro = null;
+            if(!string.IsNullOrEmpty(filtro))
+            {
+                objFiltro = new FiltrosLivros();
+                objFiltro.Filtro = filtro;
+                objFiltro.TipoFiltro = tipoFiltro;
+            }
+            int NumeroPag = pagina ?? 1;
+            int PagSize = 10;
+            LivroService livroService = new LivroService();
+            UsuarioService usuarioService = new UsuarioService();
+            Usuario u = usuarioService.ObterPorLogin(HttpContext.Session.GetString("user"));
+            EmprestimoService emprestimoService = new EmprestimoService();
+            IList<Emprestimo> em = emprestimoService.ObterEmcomUserId(u.Id);
+            IList<Livro> PagLivro = new List<Livro>();
+            foreach (var item in em)
+            {
+                PagLivro.Add(livroService.ListarTodosPorId(item.LivroId));
+            }
+            
+            IPagedList<Livro> Livros = PagLivro.ToPagedList(NumeroPag, PagSize);
+
+            return View(Livros);
+        }
+
 
 
         public IActionResult Edicao(int id)

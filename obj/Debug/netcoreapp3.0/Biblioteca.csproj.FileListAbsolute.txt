@@ -110,7 +110,6 @@ C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\obj\Debug\netcoreapp3.0\Razor\Vi
 C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\obj\Debug\netcoreapp3.0\Razor\Views\Usuario\Edicao.cshtml.g.cs
 C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\obj\Debug\netcoreapp3.0\Razor\Views\Usuario\Listagem.cshtml.g.cs
 C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\obj\Debug\netcoreapp3.0\Razor\Views\Usuario\_FormCadastro.cshtml.g.cs
-C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\obj\Debug\netcoreapp3.0\Razor\Views\Home\IndexUsuario.cshtml.g.cs
 C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\obj\Debug\netcoreapp3.0\Razor\Views\Emprestimo\CadastroUsuario.cshtml.g.cs
 C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\obj\Debug\netcoreapp3.0\Razor\Views\Emprestimo\EdicaoUsuario.cshtml.g.cs
 C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\obj\Debug\netcoreapp3.0\Razor\Views\Emprestimo\ListagemUsuario.cshtml.g.cs
@@ -187,3 +186,5 @@ C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\bin\Debug\netcoreapp3.0\System.T
 C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\bin\Debug\netcoreapp3.0\X.PagedList.Mvc.Core.dll
 C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\bin\Debug\netcoreapp3.0\X.PagedList.Web.Common.dll
 C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\obj\Debug\netcoreapp3.0\Biblioteca.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\obj\Debug\netcoreapp3.0\Razor\Views\Home\UsuarioIndex.cshtml.g.cs
+C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\obj\Debug\netcoreapp3.0\Razor\Views\Livro\ListagemUsuario.cshtml.g.cs

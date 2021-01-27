@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using System;
 
 namespace Biblioteca.Controllers
 {
@@ -8,7 +8,8 @@ namespace Biblioteca.Controllers
     {
         public static void CheckLogin(Controller controller)
         {   
-            if(string.IsNullOrEmpty(controller.HttpContext.Session.GetString("user")))
+            
+            if(String.IsNullOrEmpty(controller.HttpContext.Session.GetString("user")))
             {
                 controller.Request.HttpContext.Response.Redirect("/Home/Login");
             }

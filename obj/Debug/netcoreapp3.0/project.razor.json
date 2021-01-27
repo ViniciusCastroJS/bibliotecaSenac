@@ -10175,6 +10175,11 @@
   "RootNamespace": "Biblioteca",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\Vinicius\\Desktop\\Netcore3.0\\Biblioteca\\Views\\Livro\\ListagemUsuario.cshtml",
+      "TargetPath": "Views\\Livro\\ListagemUsuario.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Vinicius\\Desktop\\Netcore3.0\\Biblioteca\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -10217,6 +10222,11 @@
     {
       "FilePath": "c:\\Users\\Vinicius\\Desktop\\Netcore3.0\\Biblioteca\\Views\\Emprestimo\\Cadastro.cshtml",
       "TargetPath": "Views\\Emprestimo\\Cadastro.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Vinicius\\Desktop\\Netcore3.0\\Biblioteca\\Views\\Home\\UsuarioIndex.cshtml",
+      "TargetPath": "Views\\Home\\UsuarioIndex.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -10272,11 +10282,6 @@
     {
       "FilePath": "c:\\Users\\Vinicius\\Desktop\\Netcore3.0\\Biblioteca\\Views\\Emprestimo\\Edicao.cshtml",
       "TargetPath": "Views\\Emprestimo\\Edicao.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Vinicius\\Desktop\\Netcore3.0\\Biblioteca\\Views\\Home\\IndexUsuario.cshtml",
-      "TargetPath": "Views\\Home\\IndexUsuario.cshtml",
       "FileKind": "mvc"
     },
     {

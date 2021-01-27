@@ -22,10 +22,15 @@ namespace Biblioteca.Controllers
         public IActionResult Index()
         {
             Autenticacao.CheckLogin(this);
+            
+            if(HttpContext.Session.GetString("user") != "admin")
+            {
+                return RedirectToAction("UsuarioIndex");
+            }
             return View();
         }
 
-        public IActionResult IndexUsuario()
+        public IActionResult UsuarioIndex()
         {
             Autenticacao.CheckLogin(this);
             return View();
@@ -42,17 +47,19 @@ namespace Biblioteca.Controllers
             UsuarioService usuarioService = new UsuarioService();
             List<Usuario> usuarios = usuarioService.ListarTodos();
 
-            foreach (Usuario u in usuarios){
-                if (u.Login == "admin" && u.Senha == "123" )
-                {
+            if (login == "admin" && senha == "123" )
+            {
                     HttpContext.Session.SetString("user", "admin");
                     return RedirectToAction("Index");
-                }
+            }
+            else{
+                foreach (Usuario u in usuarios){
 
-                if (u.Login == login && u.Senha == senha )
-                {
-                    HttpContext.Session.SetString("user", u.Login);
-                    return RedirectToAction("IndexUsuario");
+                    if (u.Login == login && u.Senha == senha )
+                    {
+                        HttpContext.Session.SetString("user", u.Login);
+                        return RedirectToAction("UsuarioIndex");
+                    }
                 }
             }
 
