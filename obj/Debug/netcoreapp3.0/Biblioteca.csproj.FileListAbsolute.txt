@@ -177,3 +177,13 @@ C:\Users\Vinicius\Desktop\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.0\staticwe
 C:\Users\Vinicius\Desktop\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.0\Biblioteca.dll
 C:\Users\Vinicius\Desktop\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.0\Biblioteca.pdb
 C:\Users\Vinicius\Desktop\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.0\Biblioteca.genruntimeconfig.cache
+C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\bin\Debug\netcoreapp3.0\X.PagedList.dll
+C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\bin\Debug\netcoreapp3.0\X.PagedList.Mvc.dll
+C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\bin\Debug\netcoreapp3.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\bin\Debug\netcoreapp3.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bson.dll
+C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\bin\Debug\netcoreapp3.0\System.Text.Encodings.Web.dll
+C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\bin\Debug\netcoreapp3.0\X.PagedList.Mvc.Core.dll
+C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\bin\Debug\netcoreapp3.0\X.PagedList.Web.Common.dll
+C:\Users\Vinicius\Desktop\Netcore3.0\Biblioteca\obj\Debug\netcoreapp3.0\Biblioteca.MvcApplicationPartsAssemblyInfo.cs

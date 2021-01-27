@@ -51,26 +51,26 @@ namespace Biblioteca.Models
                     switch(filtro.TipoFiltro)
                     {
                         case "Autor":
-                            query = bc.Livros.Where(l => l.Autor.Contains(filtro.Filtro));
+                            query = bc.Livros.Where(l => l.Autor.Contains(filtro.Filtro)).OrderBy(l => l.Id);
                         break;
 
                         case "Titulo":
-                            query = bc.Livros.Where(l => l.Titulo.Contains(filtro.Filtro));
+                            query = bc.Livros.Where(l => l.Titulo.Contains(filtro.Filtro)).OrderBy(l => l.Id);
                         break;
 
                         default:
-                            query = bc.Livros;
+                            query = bc.Livros.OrderBy(l => l.Id);
                         break;
                     }
                 }
                 else
                 {
                     // caso filtro não tenha sido informado
-                    query = bc.Livros;
+                    query = bc.Livros.OrderBy(l => l.Id);
                 }
                 
                 //ordenação padrão
-                return query.OrderBy(l => l.Titulo).ToList();
+                return query.OrderBy(l => l.Id).ToList();
             }
         }
 

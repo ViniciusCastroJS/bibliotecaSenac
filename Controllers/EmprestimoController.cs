@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System;
+using System.Collections.Generic;
+using X.PagedList;
 
 namespace Biblioteca.Controllers
 {
@@ -37,8 +39,9 @@ namespace Biblioteca.Controllers
             return RedirectToAction("Listagem");
         }
 
-        public IActionResult Listagem(string tipoFiltro, string filtro)
+        public IActionResult Listagem(string tipoFiltro, string filtro, int? pagina)
         {
+
             Autenticacao.CheckLogin(this);
             FiltrosEmprestimos objFiltro = null;
             if(!string.IsNullOrEmpty(filtro))
@@ -47,8 +50,12 @@ namespace Biblioteca.Controllers
                 objFiltro.Filtro = filtro;
                 objFiltro.TipoFiltro = tipoFiltro;
             }
+            int NumeroPag = pagina ?? 1;
+            int PagSize = 10;
+        
             EmprestimoService emprestimoService = new EmprestimoService();
-            return View(emprestimoService.ListarTodos(objFiltro));
+            var PagEmprestimo = emprestimoService.ListarTodos(objFiltro).ToPagedList(NumeroPag, PagSize);
+            return View(PagEmprestimo);
         }
 
         public IActionResult Edicao(int id)

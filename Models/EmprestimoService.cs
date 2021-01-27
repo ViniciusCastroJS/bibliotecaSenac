@@ -44,22 +44,22 @@ namespace Biblioteca.Models
                     switch(filtro.TipoFiltro)
                     {
                         case "Usuario":
-                            query = bc.Emprestimos.Where(e => e.NomeUsuario.Contains(filtro.Filtro)).ToList();
+                            query = bc.Emprestimos.Where(e => e.NomeUsuario.Contains(filtro.Filtro)).OrderBy(l => l.Id).ToList();
                         break;
 
                         case "Livro":
-                            query = bc.Emprestimos.Where(e => e.Livro.Titulo.Contains(filtro.Filtro)).ToList();
+                            query = bc.Emprestimos.Where(e => e.Livro.Titulo.Contains(filtro.Filtro)).OrderBy(l => l.Id).ToList();
                         break;
 
                         default:
-                            query = bc.Emprestimos.ToList();
+                            query = bc.Emprestimos.OrderBy(l => l.Id).ToList();
                         break;
                     }
                 }
                 else
                 {
                     // caso filtro não tenha sido informado
-                    query = bc.Emprestimos.ToList();
+                    query = bc.Emprestimos.OrderBy(l => l.Id).ToList();
                 }
                 
                 //ordenação padrão

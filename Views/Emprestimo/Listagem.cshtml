@@ -1,4 +1,6 @@
-@model ICollection<Emprestimo>
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.PagedList<Emprestimo>;
+
 @{
     ViewData["Title"] = "Listagem de Empréstimos";
 }
@@ -75,16 +77,39 @@
             <tbody>
                 @foreach(Emprestimo e in Model)
                 {
-                <tr>
-                    <td>@e.Id</td>
-                    <td>@e.NomeUsuario</td>
-                    <td>@e.DataEmprestimo.ToString("dd/MM/yyyy")</td>
-                    <td>@e.DataDevolucao.ToString("dd/MM/yyyy")</td>
-                    <td><a href="/Emprestimo/Edicao/@e.Id">Editar</a></td>
-                </tr>
-                }
+                    <tr>
+                        <td>@e.Id</td>
+                         <td>@e.NomeUsuario</td>
+                        <td>@e.DataEmprestimo.ToString("dd/MM/yyyy")</td>
+                        <td>@e.DataDevolucao.ToString("dd/MM/yyyy")</td>
+                        <td><a href="/Emprestimo/Edicao/@e.Id">Editar</a></td>
+                    </tr>
+                }           
             </tbody>
         </table>
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-12">
+        @Html.PagedListPager(Model, pagina => Url.Action("Listagem", new { pagina = pagina }),
+            new X.PagedList.Mvc.Common.PagedListRenderOptions{
+                DisplayItemSliceAndTotal = true,
+                ContainerDivClasses = new[] {"navigation"},
+                LiElementClasses = new[] {"page-item"},
+                PageClasses = new[] {"page-link"}
+            }
+        )
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(
+            function (){
+                $('ul.pagination > li.disabled > a').addClass('page-link');
+            }
+        );  
+    </script>
+}

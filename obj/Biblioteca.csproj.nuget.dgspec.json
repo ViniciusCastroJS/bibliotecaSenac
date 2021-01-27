@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vinicius\\Desktop\\Biblioteca\\Biblioteca\\Biblioteca.csproj": {}
+    "C:\\Users\\Vinicius\\Desktop\\Netcore3.0\\Biblioteca\\Biblioteca.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vinicius\\Desktop\\Biblioteca\\Biblioteca\\Biblioteca.csproj": {
+    "C:\\Users\\Vinicius\\Desktop\\Netcore3.0\\Biblioteca\\Biblioteca.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vinicius\\Desktop\\Biblioteca\\Biblioteca\\Biblioteca.csproj",
+        "projectUniqueName": "C:\\Users\\Vinicius\\Desktop\\Netcore3.0\\Biblioteca\\Biblioteca.csproj",
         "projectName": "Biblioteca",
-        "projectPath": "C:\\Users\\Vinicius\\Desktop\\Biblioteca\\Biblioteca\\Biblioteca.csproj",
+        "projectPath": "C:\\Users\\Vinicius\\Desktop\\Netcore3.0\\Biblioteca\\Biblioteca.csproj",
         "packagesPath": "C:\\Users\\Vinicius\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vinicius\\Desktop\\Biblioteca\\Biblioteca\\obj\\",
+        "outputPath": "C:\\Users\\Vinicius\\Desktop\\Netcore3.0\\Biblioteca\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -57,6 +57,18 @@
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[3.0.0, )"
+            },
+            "X.PagedList": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "X.PagedList.Mvc": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "X.PagedList.Mvc.Core": {
+              "target": "Package",
+              "version": "[8.0.7, )"
             }
           },
           "imports": [
